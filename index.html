@@ -14,6 +14,7 @@
             --card-bg: #ffffff;
             --text-main: #333333;
             --text-muted: #666666;
+            --action-orange: #f57c00;
         }
 
         body {
@@ -47,127 +48,87 @@
             margin-bottom: 1rem;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin: 0;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-family: 'Arial Black', sans-serif;
-            color: #fff;
-        }
+        h1 { font-size: 3rem; font-weight: 900; margin: 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-family: 'Arial Black', sans-serif; color: #fff; }
+        .subtitle { font-size: 1.2rem; font-weight: 700; background-color: white; color: var(--primary-green); display: inline-block; padding: 5px 20px; border-radius: 20px; margin-top: 10px; }
 
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: 700;
-            background-color: white;
-            color: var(--primary-green);
-            display: inline-block;
-            padding: 5px 20px;
-            border-radius: 20px;
-            margin-top: 10px;
-        }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .menu-section { margin-bottom: 3rem; }
+        .menu-title { text-align: center; color: var(--primary-green); font-size: 2rem; border-bottom: 3px dashed var(--primary-green); padding-bottom: 10px; margin-bottom: 2rem; text-transform: uppercase; font-weight: 900; }
 
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .menu-section {
-            margin-bottom: 3rem;
-        }
-
-        .menu-title {
-            text-align: center;
-            color: var(--primary-green);
-            font-size: 2rem;
-            border-bottom: 3px dashed var(--primary-green);
-            padding-bottom: 10px;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .menu-item {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 6px solid var(--primary-red);
-            transition: transform 0.2s ease;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
-
-        .item-image {
-            width: 130px; 
-            height: 130px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-right: 1.5rem; 
-            border: 3px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            background-color: #eee;
-        }
+        .menu-item { background-color: var(--card-bg); border-radius: 15px; padding: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 6px solid var(--primary-red); transition: transform 0.2s ease; }
+        .menu-item:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .item-image { width: 130px; height: 130px; object-fit: cover; border-radius: 10px; margin-right: 1.5rem; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); background-color: #eee; }
 
         .item-info { flex: 1; }
         .item-info h3 { margin: 0; font-size: 1.4rem; color: var(--dark-red); font-weight: 800; }
         .item-info p { margin: 5px 0 0; color: var(--text-muted); font-size: 1rem; font-weight: 700; }
 
-        .item-price {
-            background-color: var(--primary-red);
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 900;
-            padding: 8px 18px;
-            border-radius: 30px;
-            white-space: nowrap;
-        }
+        .item-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+        .item-price { background-color: var(--primary-red); color: white; font-size: 1.3rem; font-weight: 900; padding: 6px 16px; border-radius: 30px; white-space: nowrap; }
+        .order-btn { background-color: var(--action-orange); color: white; text-decoration: none; font-weight: 800; font-size: 1rem; padding: 8px 15px; border-radius: 8px; box-shadow: 0 3px 5px rgba(245, 124, 0, 0.3); transition: background-color 0.2s; white-space: nowrap; text-align: center; }
+        .order-btn:hover { background-color: #e65100; }
 
-        footer {
-            background-color: var(--text-main);
-            color: white;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 4rem;
-            border-top: 5px solid var(--primary-green);
+        /* THƯ VIỆN ẢNH */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 1rem; }
+        .gallery-img { 
+            width: 100%; height: 140px; object-fit: cover; border-radius: 10px; border: 3px solid white; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; background-color: #eee; 
+            cursor: pointer; /* Thêm biểu tượng bàn tay khi di chuột vào ảnh */
         }
+        .gallery-img:hover { transform: scale(1.05); z-index: 1; }
 
+        /* ----- CSS CHO HIỆU ỨNG PHÓNG TO ẢNH (MODAL) ----- */
+        .modal {
+            display: none; /* Ẩn mặc định */
+            position: fixed; z-index: 999; padding-top: 80px;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85); /* Nền đen mờ */
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            margin: auto; display: block;
+            max-width: 90%; max-height: 80vh;
+            border-radius: 10px; border: 5px solid white;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease; /* Hiệu ứng zoom nhẹ */
+            object-fit: contain;
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        .close-btn {
+            position: absolute; top: 20px; right: 35px;
+            color: #f1f1f1; font-size: 50px; font-weight: bold;
+            transition: 0.3s; cursor: pointer;
+        }
+        .close-btn:hover, .close-btn:focus { color: var(--primary-red); text-decoration: none; cursor: pointer; }
+        /* ------------------------------------------------ */
+
+        footer { background-color: var(--text-main); color: white; text-align: center; padding: 2.5rem 1rem; margin-top: 4rem; border-top: 5px solid var(--primary-green); }
         .footer-section { margin-bottom: 20px; }
         .footer-label { font-size: 0.9rem; color: #aaa; margin-bottom: 5px; }
         .address-text { font-size: 1.1rem; font-weight: 700; }
         .owner-name { font-size: 1.2rem; font-weight: 700; color: #ffca28; }
-        
-        .phone-number a {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #ffca28;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+        .phone-number a { font-size: 1.8rem; font-weight: 900; color: #ffca28; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
         @media (max-width: 600px) {
             .menu-item { flex-direction: column; text-align: center; padding: 1rem; }
             .item-image { margin-right: 0; margin-bottom: 10px; width: 160px; height: 160px; }
-            .item-price { margin-top: 10px; }
+            .item-actions { align-items: center; margin-top: 15px; width: 100%; }
+            .order-btn { width: 80%; padding: 10px; font-size: 1.1rem; }
             h1 { font-size: 2.2rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-img { height: 120px; }
+            .modal-content { max-width: 95%; max-height: 70vh; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo2.png" alt="Logo 2Q-Phở" class="logo-img">
+        <img src="logo.png" alt="Logo 2Q-Phở" class="logo-img">
         <h1>2Q-Phở</h1>
         <div class="subtitle">ベトナム料理店 フォー</div>
     </header>
@@ -175,69 +136,113 @@
     <div class="container">
         <div class="menu-section">
             <h2 class="menu-title">PHỞ - フォー</h2>
+            
             <div class="menu-item">
                 <img src="photai.png" alt="Phở Bò Tái" class="item-image">
                 <div class="item-info">
                     <h3>PHỞ BÒ TÁI</h3>
                     <p>牛生肉のフォー</p>
                 </div>
-                <div class="item-price">980円</div>
+                <div class="item-actions">
+                    <div class="item-price">980円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
+
             <div class="menu-item">
                 <img src="phochin.jpg" alt="Phở Bò Chín" class="item-image">
                 <div class="item-info">
                     <h3>PHỞ BÒ CHÍN</h3>
                     <p>牛肉のフォー</p>
                 </div>
-                <div class="item-price">980円</div>
+                <div class="item-actions">
+                    <div class="item-price">980円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
         </div>
 
         <div class="menu-section">
             <h2 class="menu-title">BÁNH MÌ - バインミー</h2>
+            
             <div class="menu-item">
                 <img src="banhmi1.jpg" alt="Bánh Mì Thịt" class="item-image">
                 <div class="item-info">
                     <h3>BÁNH MÌ THỊT</h3>
                     <p>肉バインミー</p>
                 </div>
-                <div class="item-price">650円</div>
+                <div class="item-actions">
+                    <div class="item-price">650円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
+
             <div class="menu-item">
                 <img src="banhmi2.jpg" alt="Bánh Mì Đặc Biệt" class="item-image">
                 <div class="item-info">
                     <h3>BÁNH MÌ ĐẶC BIỆT</h3>
                     <p>スペシャルバインミー</p>
                 </div>
-                <div class="item-price">750円</div>
+                <div class="item-actions">
+                    <div class="item-price">750円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
         </div>
 
         <div class="menu-section">
             <h2 class="menu-title">ĐỒ UỐNG - ドリンク</h2>
+            
             <div class="menu-item">
                 <img src="nuoc1.jpg" alt="Bia Asahi" class="item-image">
                 <div class="item-info">
-                    <h3>CÁC LOẠI BIA </h3>
-                    <p>各種ビール</p>
+                    <h3>BIA ASAHI</h3>
+                    <p>アサヒビール</p>
                 </div>
-                <div class="item-price">550円</div>
+                <div class="item-actions">
+                    <div class="item-price">550円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
+
             <div class="menu-item">
                 <img src="nuoc2.jpg" alt="Cocacola" class="item-image">
                 <div class="item-info">
                     <h3>NƯỚC NGỌT / ソフトドリンク</h3>
                     <p>Cocacola / コカ・コーラ</p>
                 </div>
-                <div class="item-price">350円</div>
+                <div class="item-actions">
+                    <div class="item-price">350円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
             </div>
+
             <div class="menu-item">
                 <img src="nuoc3.jpg" alt="Nước Dừa" class="item-image">
                 <div class="item-info">
                     <h3>NƯỚC DỪA</h3>
                     <p>ココナツジュース</p>
                 </div>
-                <div class="item-price">400円</div>
+                <div class="item-actions">
+                    <div class="item-price">400円</div>
+                    <a href="LINK_GOOGLE_FORM_CUA_BAN_O_DAY" target="_blank" class="order-btn">🛒 Gọi món / 注文</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="menu-title">KHÔNG GIAN QUÁN - 店内の様子</h2>
+            <div class="gallery-grid">
+                <img src="anhquan1.jpg" alt="Không gian quán 1" class="gallery-img">
+                <img src="anhquan2.jpg" alt="Không gian quán 2" class="gallery-img">
+                <img src="anhquan3.jpg" alt="Không gian quán 3" class="gallery-img">
+                <img src="anhquan4.jpg" alt="Không gian quán 4" class="gallery-img">
+                <img src="anhquan5.jpg" alt="Không gian quán 5" class="gallery-img">
+                <img src="anhquan6.jpg" alt="Không gian quán 6" class="gallery-img">
+                <img src="anhquan7.jpg" alt="Không gian quán 7" class="gallery-img">
+                <img src="anhquan8.jpg" alt="Không gian quán 8" class="gallery-img">
+                <img src="anhquan9.jpg" alt="Không gian quán 9" class="gallery-img">
+                <img src="anhquan10.png" alt="Không gian quán 10" class="gallery-img">
             </div>
         </div>
     </div>
@@ -268,9 +273,40 @@
         </div>
         
         <p style="font-size: 0.8rem; margin-top: 25px; color: #777;">
-            © 2026 2Q-Phở. Designed for Phan Trọng Đại.
+            © 2026 2Q-Phở. Designed for Jinn.
         </p>
     </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="zoomedImg">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("zoomedImg");
+        var images = document.querySelectorAll(".gallery-img");
+        
+        // Khi bấm vào bất kỳ ảnh nào trong thư viện, lấy nguồn ảnh đó đưa lên khung to
+        images.forEach(function(img) {
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Hàm đóng ảnh khi bấm dấu X
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Đóng ảnh khi bấm ra ngoài vùng ảnh (vùng nền đen)
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
